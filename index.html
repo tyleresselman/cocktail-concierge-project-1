@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Friendly Neighborhood Cocktail Concierge</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+
+    <section class="hero is-info">
+        <div class="hero-body">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                    <p class="title navbar-item">
+                        Cocktail Boiiiz
+                    </p>
+                    <!-- <a class="navbar-item" href="https://bulma.io">
+                            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+                          </a> -->
+
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                        data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+
+                <div id="navbarBasicExample" class="navbar-menu">
+                    <div class="navbar-end">
+                        <a class="navbar-item" href="#">
+                            Home
+                        </a>
+
+                        <a class="navbar-item" href="./favorites.html">
+                            Favorites
+                        </a>
+
+                        <a class="navbar-item" href="./random.html">
+                            Random
+                        </a>
+                    </div>
+
+
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <section class="columns is-justify-content-center">
+        <form class="search-box column m-5 card is-align-items-center">
+            <div class="card-image">
+                <figure class="image">
+                    <img src="./assets/images/banner-1.jpeg" alt="#">
+                </figure>
+            </div>
+            <div class="field card-header is-justify-content-center">
+                <label class="label">Search for a cocktail by name</label>
+            </div>
+            <div class="control card-content">
+                <input id="cocktail-name-input" class="input" type="text" placeholder="Cocktail name">
+            </div>
+
+            <div class="field is-grouped is-justify-content-center">
+                <div class="control">
+                    <button class="button is-link" id="cocktail-btn">Search</button>
+                </div>
+                <div class="control">
+                    <button class="button is-link is-light">Cancel</button>
+                </div>
+            </div>
+        </form>
+
+
+
+        <form class="search-box column m-5 card">
+            <div class="card-image">
+                <figure class="image">
+                    <img src="./assets/images/banner-2.jpeg" alt="#">
+                </figure>
+            </div>
+            <div class="field card-header is-justify-content-center">
+                <label class="label">Search for a cocktail by ingredient</label>
+            </div>
+            <div class="control card-content">
+                <input id="ingredient-name-input" class="input" type="text" placeholder="Ingredient name">
+            </div>
+
+            <div class="field is-grouped is-justify-content-center">
+                <div class="control">
+                    <button class="button is-link" id="ingredient-btn">Search</button>
+                </div>
+                <div class="control">
+                    <button class="button is-link is-light">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <section class="is-flex is-justify-content-center">
+        <button id="random-cocktail" class="button is-large is-responsive">
+            Ask the bartender!
+        </button>
+    </section>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
