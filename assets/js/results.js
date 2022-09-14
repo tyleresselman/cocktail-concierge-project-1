@@ -21,7 +21,7 @@ if (searchType === "s") {
       }
     })
     .catch(function (error) {
-      alert('Unable to connect to GitHub');
+      alert('Unable to connect to CocktailDB');
     });
     
 };
@@ -29,6 +29,19 @@ if (searchType === "s") {
 // Create fetch for ingredient type search query
 if (searchType === "i") {
     console.log("This is an ingredient search");
+    fectch(ingredientUrl)
+    .then(function (response){
+      if (response.ok){
+        response.json().then(function (data){
+          displayInfo(data);
+        });
+      } else{
+        alert('Error' + response.statusText);
+      }
+    })
+    .catch(function (error){
+      alert('unable to connect to CocktailDB')
+    })
 }
 
 function displayInfo(info) {
@@ -58,24 +71,26 @@ function displayInfo(info) {
         var imgThumbDisplay = $(`<img src=${drinkThumbUrl}>`);
         var cardHeader = $("<h1 class='card-header'>");
         var cardContent = $("<section class='card-content'>");
-        var cocktailNameEl = $("<td>")
+        var cocktailNameEl = $("<td class='title is-3'>")
         var cocktailRow = $("<tr>")
         var cocktailImgEl = $("<td>")
-        var viewBtnCol = $("<td>")
+        // var viewBtnCol = $("<td>")
         var saveBtnCol =$("<td>")
-        var viewBtnEl = $("<button class='view-btn' data-id='"+drinkId+"'>")
+        // var viewBtnEl = $("<button class='view-btn' data-id='"+drinkId+"'>")
         var saveBtnEl = $("<button class='save-btn' data-id='"+drinkId+"'>")
         var resultList = $("#result-list")
+
+
         console.log(cocktailName);
         cocktailNameEl.text(cocktailName)
-        viewBtnEl.text("View")
+        // viewBtnEl.text("View")
         saveBtnEl.text("Save")
         saveBtnCol.append(saveBtnEl)
-        viewBtnCol.append(viewBtnEl)
+        // viewBtnCol.append(viewBtnEl)
         cocktailImgEl.append(imgThumbDisplay)
         cocktailRow.append(cocktailImgEl)
         cocktailRow.append(cocktailNameEl)
-        cocktailRow.append(viewBtnCol)
+        // cocktailRow.append(viewBtnCol)
         cocktailRow.append(saveBtnCol)
         resultList.append(cocktailRow)
 
