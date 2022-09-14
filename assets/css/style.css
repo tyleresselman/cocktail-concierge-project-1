@@ -5,5 +5,11 @@
     max-width: 25%;
 }
 
+.list-style {
+    list-style-type: disc;
+    list-style-position: inside;
+}
 
-    
+.card-display {
+    display: none;
+}
