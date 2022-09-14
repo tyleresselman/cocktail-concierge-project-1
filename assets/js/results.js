@@ -23,6 +23,7 @@ if (searchType === "s") {
     .catch(function (error) {
       alert('Unable to connect to GitHub');
     });
+    
 };
 
 // Create fetch for ingredient type search query
@@ -54,7 +55,34 @@ function displayInfo(info) {
         var drinkMeasure6 = info.drinks[i].strMeasure6;
         var cocktailInfoCard = $("<section class='card'>");
         var cardImgDisplay = $(`<img src=${drinkImgUrl}>`);
+        var imgThumbDisplay = $(`<img src=${drinkThumbUrl}>`);
         var cardHeader = $("<h1 class='card-header'>");
         var cardContent = $("<section class='card-content'>");
-    }
+        var cocktailNameEl = $("<td>")
+        var cocktailRow = $("<tr>")
+        var cocktailImgEl = $("<td>")
+        var viewBtnCol = $("<td>")
+        var saveBtnCol =$("<td>")
+        var viewBtnEl = $("<button class='view-btn'>")
+        var saveBtnEl = $("<button class='save-btn'>")
+        var resultList = $("#result-list")
+        console.log(cocktailName);
+        cocktailNameEl.text(cocktailName)
+        viewBtnEl.text("View")
+        saveBtnEl.text("Save")
+        saveBtnCol.append(saveBtnEl)
+        viewBtnCol.append(viewBtnEl)
+        cocktailImgEl.append(imgThumbDisplay)
+        cocktailRow.append(cocktailImgEl)
+        cocktailRow.append(cocktailNameEl)
+        cocktailRow.append(viewBtnCol)
+        cocktailRow.append(saveBtnCol)
+        resultList.append(cocktailRow)
+      }
+   
+    
+    
+
+    
+
 }
