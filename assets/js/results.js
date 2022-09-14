@@ -63,8 +63,8 @@ function displayInfo(info) {
         var cocktailImgEl = $("<td>")
         var viewBtnCol = $("<td>")
         var saveBtnCol =$("<td>")
-        var viewBtnEl = $("<button class='view-btn'>")
-        var saveBtnEl = $("<button class='save-btn'>")
+        var viewBtnEl = $("<button class='view-btn' data-id='"+drinkId+"'>")
+        var saveBtnEl = $("<button class='save-btn' data-id='"+drinkId+"'>")
         var resultList = $("#result-list")
         console.log(cocktailName);
         cocktailNameEl.text(cocktailName)
@@ -78,6 +78,7 @@ function displayInfo(info) {
         cocktailRow.append(viewBtnCol)
         cocktailRow.append(saveBtnCol)
         resultList.append(cocktailRow)
+
       }
    
     
