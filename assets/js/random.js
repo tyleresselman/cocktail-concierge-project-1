@@ -17,7 +17,7 @@ randomBtn.on("click", function(e) {
         if(response.ok) {
             response.json()
             .then(function(data) {
-                console.log(data)
+                // console.log(data)
                 displayDrink(data)
             })
         }
@@ -25,10 +25,11 @@ randomBtn.on("click", function(e) {
 })
 
 function displayDrink(info) {
-    console.log(info.drinks)
+    // console.log(info.drinks);
+    ingredientListEl.empty();
     var drinkId = info.drinks[0].idDrink;
     var cocktailName = info.drinks[0].strDrink;
-    var typeGlass = info.drinks[0].strGlass;
+    var glassType = info.drinks[0].strGlass;
     var instructions = info.drinks[0].strInstructions;
     var drinkImgUrl = info.drinks[0].strDrinkThumb;
     var drinkCategory = info.drinks[0].strCategory;
@@ -48,6 +49,8 @@ function displayDrink(info) {
     if(drinkCategory !== "shot") {
         cocktailNameEl.text(cocktailName);
         cocktailImgEl.attr("src", drinkImgUrl);
+        instructionsEl.text(instructions);
+        glassTypeEl.text(glassType);
         var li1 = $("<li>");
         var li2 = $("<li>");
         var li3 = $("<li>");
