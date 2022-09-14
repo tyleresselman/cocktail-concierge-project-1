@@ -6,7 +6,8 @@ var cocktailNameEl = $("#cocktail-name");
 var ingredientListEl = $("#ingredient-list");
 var instructionsEl = $("#cocktail-instr");
 var glassTypeEl = $("#glass-type");
-var cocktailImgEl = $("#cocktail-image")
+var cocktailImgEl = $("#cocktail-image");
+
 
 randomBtn.on("click", function(e) {
     e.preventDefault();
@@ -43,6 +44,7 @@ function displayDrink(info) {
     var drinkMeasure4 = info.drinks[0].strMeasure4;
     var drinkMeasure5 = info.drinks[0].strMeasure5;
     var drinkMeasure6 = info.drinks[0].strMeasure6;
+    saveBtn.attr("data-id", drinkId)
     if(drinkCategory !== "shot") {
         cocktailNameEl.text(cocktailName);
         cocktailImgEl.attr("src", drinkImgUrl);
@@ -57,7 +59,7 @@ function displayDrink(info) {
         if((drinkMeasure1 === null && drinkIngredient1 === null) || (drinkMeasure1 === "" && drinkIngredient1 === null) || (drinkMeasure1 === null && drinkIngredient1 === "")) {
             return;
         };
-        if(drinkMeasure1 === null & drinkIngredient1) {
+        if(drinkMeasure1 === null) {
             drinkMeasure1 = "";
         };
         if(drinkIngredient1 === null) {
