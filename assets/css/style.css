@@ -2,7 +2,7 @@
 .column {
     /* width: 30%!important; */
     min-height: 40vh;
-    max-width: 25%;
+    max-width: 40%;
 }
 
 .list-style {
@@ -12,4 +12,10 @@
 
 #drink-card {
     display:none;
+}
+
+@media screen and (max-width: 768px) {
+    .column {
+        max-width: 100%;
+    }
 }
