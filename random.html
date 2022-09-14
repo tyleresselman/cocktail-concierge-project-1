@@ -48,8 +48,7 @@
     </section>
 
     <section class="section columns is-justify-content-center"> 
-        <!-- <div class="column is-2"></div> -->
-        <div class="card-display card column">
+        <div id="drink-card" class="card column">
             <div class="card-image">
                 <figure class="image">
                     <img id="cocktail-image" src="./assets/images/banner-2.jpeg" alt="#">
@@ -59,16 +58,12 @@
                 <label id="cocktail-name" class="label">Random cocktail</label>
             </div>
             <div class="control card-content">
-                <!-- <input id="ingredient-name-input" class="input" type="text" placeholder="Ingredient name"> -->
                 <p class="title is-4">Ingredients</p>
                 <ul class="subtitle is-6 list-style" id="ingredient-list">
-                    <li>Vodka</li>
-                    <li>More vodka</li>
                 </ul>
                 <p class="title is-4">Instructions</p>
-                <p class="subtitle is-6" id="cocktail-instr">Drink vodka?</p>
-                <p class="title is-4">Optimal glassware: <span class="subtitle is-6" id="glass-type">Mouth</span></p>
-                <!-- <p class="subtitle is-6" id="glass-type">Mouth</p> -->
+                <p class="subtitle is-6" id="cocktail-instr"></p>
+                <p class="title is-4">Glassware: <span class="subtitle is-6" id="glass-type"></span></p>
             </div>
             <div class="field is-grouped is-justify-content-center">
                 <div class="control">
@@ -76,7 +71,6 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="column is-2"></div> -->
     </section>
 
     <section class="columns is-justify-content-center">
@@ -85,7 +79,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script src="./assets/js/results.js"></script>
+    <script src="./assets/js/random.js"></script>
 </body>
 
 </html>
