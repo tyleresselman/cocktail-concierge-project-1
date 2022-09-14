@@ -9,6 +9,7 @@ var cocktailByIdUrl;
 
 // Create fetch for cocktail type search query
 if (searchType === "s") {
+  console.log("This is a cocktail search");
     fetch(cocktailUrl)
     .then(function (response) {
       if (response.ok) {
@@ -26,7 +27,7 @@ if (searchType === "s") {
 
 // Create fetch for ingredient type search query
 if (searchType === "i") {
-    console.log("This is an ingredient search")
+    console.log("This is an ingredient search");
 }
 
 function displayInfo(info) {
@@ -51,7 +52,7 @@ function displayInfo(info) {
         var drinkMeasure4 = info.drinks[i].strMeasure4;
         var drinkMeasure5 = info.drinks[i].strMeasure5;
         var drinkMeasure6 = info.drinks[i].strMeasure6;
-        var cocktailInfoCard = $("<section class='card'>")
+        var cocktailInfoCard = $("<section class='card'>");
         var cardImgDisplay = $(`<img src=${drinkImgUrl}>`);
         var cardHeader = $("<h1 class='card-header'>");
         var cardContent = $("<section class='card-content'>");
