@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <section class="hero is-info">
+        <div class="hero-body">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                    <p class="title navbar-item">Cocktail Boiiiz</p>
+                    <!-- <a class="navbar-item" href="https://bulma.io">
+                            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+                          </a> -->
+
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                        data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+
+                <div id="navbarBasicExample" class="navbar-menu">
+                    <div class="navbar-end">
+                        <a class="navbar-item" href="./index.html">
+                            Home
+                        </a>
+
+                        <a class="navbar-item" href="./favorites.html">
+                            Favorites
+                        </a>
+
+                        <a class="navbar-item" href="./random.html">
+                            Random
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <section class="section columns is-justify-content-center"> 
+        <!-- <div class="column is-2"></div> -->
+        <div class="card-display card column">
+            <div class="card-image">
+                <figure class="image">
+                    <img id="cocktail-image" src="./assets/images/banner-2.jpeg" alt="#">
+                </figure>
+            </div>
+            <div class="field card-header is-justify-content-center">
+                <label id="cocktail-name" class="label">Random cocktail</label>
+            </div>
+            <div class="control card-content">
+                <!-- <input id="ingredient-name-input" class="input" type="text" placeholder="Ingredient name"> -->
+                <p class="title is-4">Ingredients</p>
+                <ul class="subtitle is-6 list-style" id="ingredient-list">
+                    <li>Vodka</li>
+                    <li>More vodka</li>
+                </ul>
+                <p class="title is-4">Instructions</p>
+                <p class="subtitle is-6" id="cocktail-instr">Drink vodka?</p>
+                <p class="title is-4">Optimal glassware: <span class="subtitle is-6" id="glass-type">Mouth</span></p>
+                <!-- <p class="subtitle is-6" id="glass-type">Mouth</p> -->
+            </div>
+            <div class="field is-grouped is-justify-content-center">
+                <div class="control">
+                    <button class="button is-link" id="save-btn">Save</button>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="column is-2"></div> -->
+    </section>
+
+    <section class="columns is-justify-content-center">
+            <button class="button is-link" id="rando-btn">Ask the bartender!</button>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="./assets/js/results.js"></script>
+</body>
+
+</html>
