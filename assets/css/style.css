@@ -10,6 +10,6 @@
     list-style-position: inside;
 }
 
-.card-display {
-    display: none;
+#drink-card {
+    display:none;
 }
