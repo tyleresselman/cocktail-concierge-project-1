@@ -1,7 +1,7 @@
 /* .search-box { */
 .column {
     /* min-height: 40vh; */
-    max-width: 40%;
+    max-width: 25%; /*We should adjust this to maybe 40% */
 }
 
 .list-style {
