@@ -5,6 +5,7 @@ var searchType = location.search.split("=")[0].split("")[1];
 var searchQuery = location.search.split("=")[1];
 var cocktailUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchQuery}`;
 var ingredientUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${searchQuery}`;
+var resultList = $("#result-list");
 var cocktailByIdUrl;
 
 // Create fetch for cocktail type search query
@@ -71,53 +72,56 @@ function displayInfo(info) {
         var imgThumbDisplay = $(`<img src=${drinkThumbUrl}>`);
         var cardHeader = $("<h1 class='card-header'>");
         var cardContent = $("<section class='card-content'>");
-        var cocktailNameEl = $("<td class='title is-3'>")
-        var cocktailRow = $("<tr>")
-        var cocktailImgEl = $("<td>")
+        var cocktailNameEl = $("<td class='title is-3'>");
+        var cocktailRow = $("<tr>");
+        var cocktailImgEl = $("<td>");
         // var viewBtnCol = $("<td>")
-        var saveBtnCol =$("<td>")
+        var saveBtnCol =$("<td>");
         // var viewBtnEl = $("<button class='view-btn' data-id='"+drinkId+"'>")
-        var saveBtnEl = $("<button class='save-btn' data-id='"+drinkId+"'>")
-        var resultList = $("#result-list")
-        var drinkDetails = $("<td>")
-        var ingredientStEl = $("<p>")
+        var saveBtnEl = $("<button class='save-btn' data-id='"+drinkId+"'>");
+        var drinkDetails = $("<td>");
+        var ingredientStEl = $("<p>");
         //this^is the subtitle ingredients
-        var ingredientListEl = $("<ul class='list-style' id='ingredient-list'>")
+        var ingredientListEl = $("<ul class='list-style' id='ingredient-list'>");
         //this is the actual list
-        var instructionStEl = $("<p>")
+        var instructionStEl = $("<p>");
         //this is the subtitle ''
-        var instructionEl = $("<p id='cocktail-instr'>")
-        var glasswareStEl = $("<p>")
+        var instructionEl = $("<p id='cocktail-instr'>");
+        var glasswareStEl = $("<p>");
 
         console.log(cocktailName);
-        cocktailNameEl.text(cocktailName)
+        cocktailNameEl.text(cocktailName);
         // viewBtnEl.text("View")
-        saveBtnEl.text("Save")
-        saveBtnCol.append(saveBtnEl)
-        saveBtnCol.attr("data-id", drinkId); 
+        saveBtnEl.text("Save");
+        saveBtnEl.attr("style", "padding: 10px");
+        saveBtnCol.append(saveBtnEl);
+        saveBtnCol.attr("style", "text-align: center; vertical-align: middle;");
         // viewBtnCol.append(viewBtnEl)
-        ingredientStEl.text("Ingredients")
-        instructionStEl.text("Instructions")
-        instructionEl.text(instructions)
-        glasswareStEl.text("Glassware: " + glassType)
-        drinkDetails.append(ingredientStEl)
-        drinkDetails.append(instructionStEl)
-        drinkDetails.append(instructionEl)
-        drinkDetails.append(glasswareStEl)
+        ingredientStEl.text("Ingredients");
+        instructionStEl.text("Instructions");
+        instructionEl.text(instructions);
+        glasswareStEl.text("Glassware: " + glassType);
+        drinkDetails.append(ingredientStEl);
+        drinkDetails.append(instructionStEl);
+        drinkDetails.append(instructionEl);
+        drinkDetails.append(glasswareStEl);
         // create li elements and append them then copy and paste items 1-10 for the ingr+measure
-        cocktailImgEl.append(imgThumbDisplay)
-        cocktailRow.append(cocktailImgEl)
-        cocktailRow.append(cocktailNameEl)
+        cocktailImgEl.append(imgThumbDisplay);
+        cocktailRow.append(cocktailImgEl);
+        cocktailRow.append(cocktailNameEl);
         // cocktailRow.append(viewBtnCol)
-        cocktailRow.append(drinkDetails)
-        cocktailRow.append(saveBtnCol)
-        resultList.append(cocktailRow)
+        cocktailRow.append(drinkDetails);
+        cocktailRow.append(saveBtnCol);
+        resultList.append(cocktailRow);
        
 
       }
    
     
-    
+resultList.on("click", ".save-btn", function(e) {
+  e.preventDefault();
+  console.log($(e.target).attr("data-id"));
+})
 
     
 
