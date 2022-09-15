@@ -96,6 +96,7 @@ function displayInfo(info) {
         saveBtnEl.attr("style", "padding: 10px");
         saveBtnCol.append(saveBtnEl);
         saveBtnCol.attr("style", "text-align: center; vertical-align: middle;");
+        
         // viewBtnCol.append(viewBtnEl)
         ingredientStEl.text("Ingredients");
         instructionStEl.text("Instructions");
