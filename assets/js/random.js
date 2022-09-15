@@ -27,9 +27,13 @@ randomBtn.on("click", function (e) {
 
 saveBtn.on("click", function(e) {
     e.preventDefault();
-    var dataId = saveBtn.attr("data-id")
+    var dataId = saveBtn.attr("data-id");
+    if (storedId.includes(dataId)) {
+        return;
+    } else {
     storedId.push(dataId);
-    localStorage.setItem("drink-id", JSON.stringify(storedId))
+    localStorage.setItem("drink-id", JSON.stringify(storedId));
+    }
 })
 
 function displayDrink(info) {
