@@ -7,7 +7,7 @@ var ingredientListEl = $("#ingredient-list");
 var instructionsEl = $("#cocktail-instr");
 var glassTypeEl = $("#glass-type");
 var cocktailImgEl = $("#cocktail-image");
-var storedId = JSON.parse(localStorage.getItem("drink-id")) || [];
+var storedDrinks = JSON.parse(localStorage.getItem("stored-drinks")) || [];
 
 
 randomBtn.on("click", function (e) {
@@ -28,11 +28,11 @@ randomBtn.on("click", function (e) {
 saveBtn.on("click", function(e) {
     e.preventDefault();
     var dataId = saveBtn.attr("data-id");
-    if (storedId.includes(dataId)) {
+    if (storedDrinks.includes(dataId)) {
         return;
     } else {
-    storedId.push(dataId);
-    localStorage.setItem("drink-id", JSON.stringify(storedId));
+    storedDrinks.push(dataId);
+    localStorage.setItem("stored-drinks", JSON.stringify(storedDrinks));
     }
 })
 
