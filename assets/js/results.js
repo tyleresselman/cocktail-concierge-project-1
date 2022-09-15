@@ -49,7 +49,7 @@ function displayInfo(info) {
     for(var i = 0; i < info.drinks.length; i++) {
         var drinkId = info.drinks[i].idDrink;
         var cocktailName = info.drinks[i].strDrink;
-        var typeGlass = info.drinks[i].strGlass;
+        var glassType = info.drinks[i].strGlass;
         var instructions = info.drinks[i].strInstructions;
         var drinkImgUrl = info.drinks[i].strDrinkThumb;
         var drinkThumbUrl = info.drinks[i].strDrinkThumb + "/preview";
@@ -79,20 +79,40 @@ function displayInfo(info) {
         // var viewBtnEl = $("<button class='view-btn' data-id='"+drinkId+"'>")
         var saveBtnEl = $("<button class='save-btn' data-id='"+drinkId+"'>")
         var resultList = $("#result-list")
-
+        var drinkDetails = $("<td>")
+        var ingredientStEl = $("<p>")
+        //this^is the subtitle ingredients
+        var ingredientListEl = $("<ul class='list-style' id='ingredient-list'>")
+        //this is the actual list
+        var instructionStEl = $("<p>")
+        //this is the subtitle ''
+        var instructionEl = $("<p id='cocktail-instr'>")
+        var glasswareStEl = $("<p>")
 
         console.log(cocktailName);
         cocktailNameEl.text(cocktailName)
         // viewBtnEl.text("View")
         saveBtnEl.text("Save")
         saveBtnCol.append(saveBtnEl)
+        saveBtnCol.attr("data-id", drinkId); 
         // viewBtnCol.append(viewBtnEl)
+        ingredientStEl.text("Ingredients")
+        instructionStEl.text("Instructions")
+        instructionEl.text(instructions)
+        glasswareStEl.text("Glassware: " + glassType)
+        drinkDetails.append(ingredientStEl)
+        drinkDetails.append(instructionStEl)
+        drinkDetails.append(instructionEl)
+        drinkDetails.append(glasswareStEl)
+        // create li elements and append them then copy and paste items 1-10 for the ingr+measure
         cocktailImgEl.append(imgThumbDisplay)
         cocktailRow.append(cocktailImgEl)
         cocktailRow.append(cocktailNameEl)
         // cocktailRow.append(viewBtnCol)
+        cocktailRow.append(drinkDetails)
         cocktailRow.append(saveBtnCol)
         resultList.append(cocktailRow)
+       
 
       }
    
