@@ -28,8 +28,6 @@ for (let i = 0; i < storedDrinks.length; i++) {
 }
 
 function displayInfo(info) {
-    console.log(info.drinks);
-    // for (var i = 0; i < info.drinks.length; i++) {
       var drinkId = info.drinks[0].idDrink;
       var cocktailName = info.drinks[0].strDrink;
       var glassType = info.drinks[0].strGlass;
