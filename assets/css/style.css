@@ -1,7 +1,5 @@
-/* .search-box { */
 .column {
-    /* min-height: 40vh; */
-    max-width: 40%; /*does this work better? We can adjust size of image if too big but the box is a better size in random.js*/
+    max-width: 30%;
 }
 
 .list-style {
