@@ -13,3 +13,9 @@
 #drink-card {
     display:none;
 }
+
+@media screen and (max-width: 768px) {
+    .column {
+        max-width: 100%;
+    }
+}
