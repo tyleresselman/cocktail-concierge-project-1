@@ -13,6 +13,14 @@
     display:none;
 }
 
+td {
+    width: 25%;
+}
+
+table {
+    margin-top: 20px;
+}
+
 @media screen and (max-width: 768px) {
     .column {
         max-width: 100%;
