@@ -16,7 +16,7 @@ if (searchType === "s") {
     .then(function (response) {
       if (response.ok) {
         response.json().then(function (data) {
-          displayInfo(data);
+          displayCocktailInfo(data);
         });
       } else {
         alert('Error: ' + response.statusText);
@@ -31,11 +31,11 @@ if (searchType === "s") {
 // Create fetch for ingredient type search query
 if (searchType === "i") {
   console.log("This is an ingredient search");
-  fectch(ingredientUrl)
+  fetch(ingredientUrl)
     .then(function (response) {
       if (response.ok) {
         response.json().then(function (data) {
-          displayInfo(data);
+          displayIngredientInfo(data);
         });
       } else {
         alert('Error' + response.statusText);
@@ -46,7 +46,18 @@ if (searchType === "i") {
     })
 }
 
-function displayInfo(info) {
+function displayIngredientInfo(info) {
+  console.log(info.drinks);
+  var randomDrinksArr = info.drinks.map(value => ({ value, sort: Math.random() })).sort((a, b) => a.sort - b.sort).map(({ value }) => value).slice(0, 10);
+  console.log(randomDrinksArr);
+  for (let i = 0; i < randomDrinksArr.length; i++) {
+    var drinksById = randomDrinksArr[i].idDrink
+    
+  }
+  
+}
+
+function displayCocktailInfo(info) {
   console.log(info.drinks);
   for (var i = 0; i < info.drinks.length; i++) {
     var drinkId = info.drinks[i].idDrink;
