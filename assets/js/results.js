@@ -1,4 +1,5 @@
 var searchResults;
+var errorMsg = $(".error-msg")
 
 // Store variable that grabs first letter after query in URL to determine whether it is a cocktail search("s") or ingredient search("i")
 var searchType = location.search.split("=")[0].split("")[1];
@@ -19,11 +20,15 @@ if (searchType === "s") {
           displayCocktailInfo(data);
         });
       } else {
-        alert('Error: ' + response.statusText);
+        var message = $("<p class='has-text-danger'>");
+        message.text('Error' + response.statusText);
+        errorMsg.append(message);
       }
     })
     .catch(function (error) {
-      alert('Unable to connect to CocktailDB');
+      var message = $("<p class='has-text-danger'>");
+        message.text('unable to connect to CocktailDB');
+        errorMsg.append(message);
     });
 
 };
@@ -38,11 +43,16 @@ if (searchType === "i") {
           getIngredientInfo(data);
         });
       } else {
-        alert('Error' + response.statusText);
+        var message = $("<p class='has-text-danger'>");
+        message.text('Error' + response.statusText);
+        errorMsg.append(message);
+        // alert('Error' + response.statusText);
       }
     })
     .catch(function (error) {
-      alert('unable to connect to CocktailDB')
+      var message = $("<p class='has-text-danger'>");
+        message.text('unable to connect to CocktailDB');
+        errorMsg.append(message);
     })
 }
 
@@ -62,11 +72,15 @@ function getIngredientInfo(info) {
           displayIngredientInfo(data)
         }) 
       } else {
-        alert('Error' + response.statusText);
+        var message = $("<p class='has-text-danger'>");
+        message.text('Error' + response.statusText);
+        errorMsg.append(message);
       }
     })
     .catch(function (error) {
-      alert('unable to connect to CocktailDB')
+      var message = $("<p class='has-text-danger'>");
+        message.text('unable to connect to CocktailDB');
+        errorMsg.append(message);
     })
   }
 }
