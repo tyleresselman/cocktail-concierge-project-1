@@ -82,6 +82,7 @@ function displayInfo(info) {
         cocktailNameEl.text(cocktailName);
         // viewBtnEl.text("View")
         removeBtnEl.text("Remove");
+        removeBtnEl.addClass("button is-danger");
         removeBtnEl.attr("style", "padding: 10px");
         removeBtnCol.append(removeBtnEl);
         removeBtnCol.attr("style", "text-align: center; vertical-align: middle;");

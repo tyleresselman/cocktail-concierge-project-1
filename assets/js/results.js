@@ -129,6 +129,7 @@ function displayCocktailInfo(info) {
       // viewBtnEl.text("View")
       saveBtnEl.text("Save");
       saveBtnEl.attr("style", "padding: 10px");
+      saveBtnEl.addClass("button is-success");
       saveBtnCol.append(saveBtnEl);
       saveBtnCol.attr("style", "text-align: center; vertical-align: middle;");
       glassSpan.text(glassType)
@@ -372,6 +373,7 @@ function displayIngredientInfo (info) {
       // viewBtnEl.text("View")
       saveBtnEl.text("Save");
       saveBtnEl.attr("style", "padding: 10px");
+      saveBtnEl.addClass("button is-success");
       saveBtnCol.append(saveBtnEl);
       saveBtnCol.attr("style", "text-align: center; vertical-align: middle;");
       glassSpan.text(glassType)
@@ -563,8 +565,10 @@ resultList.on("click", ".save-btn", function (e) {
   console.log($(e.target).attr("data-id"));
   var dataId = $(e.target).attr("data-id");
   if (storedDrinks.includes(dataId)) {
-    return
+    $(e.target).text("Already Saved!");
+    return;
   } else {
+    $(e.target).text("Saved!");
     storedDrinks.push(dataId);
     localStorage.setItem("stored-drinks", JSON.stringify(storedDrinks));
     }

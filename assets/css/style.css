@@ -2,6 +2,31 @@
     max-width: 30%;
 }
 
+.hero-bg-img {
+    background-image: url("../images/header-banner-1.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-item {
+    line-height: 0;
+    padding: 0 .75rem;
+}
+
+.navbar-end a:hover {
+    background-color: transparent;
+    border-bottom: white solid 2px;
+}
+
+.navbar-end a:active {
+    background-color: transparent;
+}
+
+.navbar-end a:focus {
+    background-color: transparent;
+}
+
 .list-style {
     list-style-type: disc;
     list-style-position: inside;
@@ -22,5 +47,43 @@ table {
 @media screen and (max-width: 768px) {
     .column {
         max-width: 100%;
+    }
+
+    section button {
+        margin-bottom: 30px;
+    }
+
+    tr {
+        border-top: 1px dashed rgb(73,198,141);
+    }
+
+    td {
+       display: flex;
+       flex-direction: column;
+       min-width: 100%;
+    }
+
+    td img {
+        width: 200px;
+        align-self: center;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .navbar-end a {
+        line-height: 1.5;
+        padding: .5rem .75rem;
+    }
+
+    .navbar-menu  {
+        background-color: transparent;
+    }
+
+    .navbar-end p {
+        visibility: hidden;
+    }
+
+    .navbar-end a:hover {
+        border-bottom: 0px;
     }
 }

@@ -29,8 +29,10 @@ saveBtn.on("click", function(e) {
     e.preventDefault();
     var dataId = saveBtn.attr("data-id");
     if (storedDrinks.includes(dataId)) {
+        $(e.target).text("Already Saved!");
         return;
     } else {
+    $(e.target).text("Saved!");
     storedDrinks.push(dataId);
     localStorage.setItem("stored-drinks", JSON.stringify(storedDrinks));
     }
