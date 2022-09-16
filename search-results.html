@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,10 +16,6 @@
             <nav class="navbar" role="navigation" aria-label="main navigation">
                 <div class="navbar-brand">
                     <p class="title navbar-item has-text-white">Cocktail Concierge</p>
-                    <!-- <a class="navbar-item" href="https://bulma.io">
-                            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-                          </a> -->
-
                     <a role="button" class="navbar-burger has-text-white" aria-label="menu" aria-expanded="false"
                         data-target="navbarBasicExample">
                         <span aria-hidden="true"></span>
@@ -26,7 +23,6 @@
                         <span aria-hidden="true"></span>
                     </a>
                 </div>
-
                 <div id="navbarBasicExample" class="navbar-menu">
                     <div class="navbar-end">
                         <a class="navbar-item has-text-white" href="./index.html">
@@ -45,38 +41,26 @@
                 </div>
             </nav>
         </div>
-    </section>   
-    <main> 
+    </section>
+    <main>
         <container class="container is-flex is-justify-content-center ">
             <div class="box mt-6 error-msg">
                 <h1 class="subtitle"> Search Results <span id="search-input"></span></h1>
-            </div> 
+            </div>
             <!-- made this seperate container to center -->
-        </container>    
-            <div class="table-container is-flex is-justify-content-center">
-                <table class="table is-striped is-hoverable">
-                    <tbody id="result-list">
-                        <!-- <tr>
-                            <td>pic here</td>
-                            <td>yummy drink name</td>
-                            <td> link here</td>
-                            <td> X button</td>
-                        </tr>
-                        <tr>
-                            <td>pic here</td>
-                            <td>yummy drink name</td>
-                            <td> link here</td>
-                            <td> X button</td>
-                        </tr> -->
-                      <!-- we will add these in dymanically -->
-
-                    </tbody>
-                </table>
-            </div>  
-    <main>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
-    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-<script src="./assets/js/results.js"></script>
-<script src="./assets/js/burger.js"></script>
+        </container>
+        <div class="table-container is-flex is-justify-content-center">
+            <table class="table is-striped is-hoverable">
+                <tbody id="result-list">
+                    <!-- Displaying Results here -->
+                </tbody>
+            </table>
+        </div>
+        <main>
+            <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+                integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+            <script src="./assets/js/results.js"></script>
+            <script src="./assets/js/burger.js"></script>
 </body>
+
 </html>
