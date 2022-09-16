@@ -71,6 +71,7 @@ function displayInfo(info) {
   var glassSpan = $("<span class='subtitle is-6'>")
   if (drinkCategory !== "shot") {
     cocktailNameEl.text(cocktailName);
+    imgThumbDisplay.attr("alt", `Image of ${cocktailName}`)
     removeBtnEl.text("Remove");
     removeBtnEl.attr("style", "padding: 10px");
     removeBtnCol.append(removeBtnEl);

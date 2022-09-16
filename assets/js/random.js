@@ -80,6 +80,7 @@ function displayDrink(info) {
         saveBtn.attr("data-id", drinkId);
         cocktailNameEl.text(cocktailName);
         cocktailImgEl.attr("src", drinkImgUrl);
+        cocktailImgEl.attr("alt", `Image of ${cocktailName}`);
         instructionsEl.text(instructions);
         glassTypeEl.text(glassType);
         var li1 = $("<li>");
