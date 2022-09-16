@@ -141,6 +141,7 @@ function displayCocktailInfo(info) {
     var glassSpan = $("<span class='subtitle is-6'>")
     if (drinkCategory !== "shot") {
       cocktailNameEl.text(cocktailName);
+      imgThumbDisplay.attr("alt", `Image of ${cocktailName}`);
       saveBtnEl.text("Save");
       saveBtnEl.attr("style", "padding: 10px");
       saveBtnCol.append(saveBtnEl);
@@ -371,6 +372,7 @@ function displayIngredientInfo(info) {
   var glassSpan = $("<span class='subtitle is-6'>")
   if (drinkCategory !== "shot") {
     cocktailNameEl.text(cocktailName);
+    imgThumbDisplay.attr("alt", `Image of ${cocktailName}`);
     saveBtnEl.text("Save");
     saveBtnEl.attr("style", "padding: 10px");
     saveBtnCol.append(saveBtnEl);
