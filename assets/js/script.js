@@ -1,5 +1,4 @@
 var cocktailInputEl = $("#cocktail-name-input");
-// var ingredientInputEl = $("#ingredient-name-input");
 var cocktailBtn = $("#cocktail-btn");
 var ingredientBtn = $("#ingredient-btn");
 var nameButtonDiv = $(".name-button-div");
@@ -13,9 +12,9 @@ cocktailBtn.on("click", function(e) {
         cocktailInputEl.val("");
         window.location.replace(`./search-results.html?s=${cocktailVal}`)
     } else {
-        var p = $("<p class='has-text-danger'>");
-        p.text("Please enter a valid input");
-        nameButtonDiv.append(p);
+        var errMessage = $("<p class='has-text-danger'>");
+        errMessage.text("Please enter a valid input");
+        nameButtonDiv.append(errMessage);
     }
 });
 
@@ -26,10 +25,7 @@ function ingInput() {
     .then(function(response){
       return response.json()
     }).then(function(data){
-      // console.log(data); 
-      // strIngredient1
       for (let i = 0; i < data.drinks.length; i++) {
-        // console.log(data.drinks[i].strIngredient1);
       var optionEl = $("<option>");
       optionEl.text(data.drinks[i].strIngredient1);
       optionEl.val(data.drinks[i].strIngredient1);
@@ -41,15 +37,11 @@ function ingInput() {
 
 ingredientBtn.on("click", function(e) {
     e.preventDefault();
-    // var ingredientVal = ingredientInputEl.val();
     var dropDownVal = ingListSelectEl.val();
-    console.log(dropDownVal);
-    // if(ingredientVal !=="") {
-        // ingredientInputEl.val("");
-        window.location.replace(`./search-results.html?i=${dropDownVal}`);
-    // } else {
-    //     var p = $("<p class='has-text-danger'>");
-    //     p.text("Please enter a valid input");
-    //     ingButtonDiv.append(p);
-    // }
+    if (dropDownVal === null) {
+        var errMessage = $("<p class='has-text-danger'>");
+            errMessage.text("Please select an ingredient");
+            ingButtonDiv.append(errMessage);
+    } else {
+        window.location.replace(`./search-results.html?i=${dropDownVal}`)};
 });
