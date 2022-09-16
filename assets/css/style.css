@@ -53,6 +53,20 @@ table {
         margin-bottom: 30px;
     }
 
+    tr {
+        border-top: 1px dashed rgb(73,198,141);
+    }
+
+    td {
+       display: flex;
+       flex-direction: column;
+       min-width: 100%;
+    }
+
+    td img {
+        width: 200px;
+        align-self: center;
+    }
 }
 
 @media screen and (max-width: 1023px) {
