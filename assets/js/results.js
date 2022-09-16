@@ -565,8 +565,10 @@ resultList.on("click", ".save-btn", function (e) {
   console.log($(e.target).attr("data-id"));
   var dataId = $(e.target).attr("data-id");
   if (storedDrinks.includes(dataId)) {
-    return
+    $(e.target).text("Already Saved!");
+    return;
   } else {
+    $(e.target).text("Saved!");
     storedDrinks.push(dataId);
     localStorage.setItem("stored-drinks", JSON.stringify(storedDrinks));
     }
