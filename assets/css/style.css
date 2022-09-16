@@ -23,6 +23,10 @@
     background-color: transparent;
 }
 
+.navbar-end a:focus {
+    background-color: transparent;
+}
+
 .list-style {
     list-style-type: disc;
     list-style-position: inside;
@@ -43,5 +47,29 @@ table {
 @media screen and (max-width: 768px) {
     .column {
         max-width: 100%;
+    }
+
+    section button {
+        margin-bottom: 30px;
+    }
+
+}
+
+@media screen and (max-width: 1023px) {
+    .navbar-end a {
+        line-height: 1.5;
+        padding: .5rem .75rem;
+    }
+
+    .navbar-menu  {
+        background-color: transparent;
+    }
+
+    .navbar-end p {
+        visibility: hidden;
+    }
+
+    .navbar-end a:hover {
+        border-bottom: 0px;
     }
 }
