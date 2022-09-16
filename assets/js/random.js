@@ -21,20 +21,30 @@ randomBtn.on("click", function (e) {
                         // console.log(data)
                         displayDrink(data)
                     })
+            } else {
+                var message = $("<p class='has-text-danger'>");
+                message.text('Error' + response.statusText);
+                errorMsg.append(message);
+                // alert('Error' + response.statusText);
             }
+        })
+        .catch(function (error) {
+            var message = $("<p class='has-text-danger'>");
+            message.text('unable to connect to CocktailDB');
+            errorMsg.append(message);
         })
 });
 
-saveBtn.on("click", function(e) {
+saveBtn.on("click", function (e) {
     e.preventDefault();
     var dataId = saveBtn.attr("data-id");
     if (storedDrinks.includes(dataId)) {
         $(e.target).text("Already Saved!");
         return;
     } else {
-    $(e.target).text("Saved!");
-    storedDrinks.push(dataId);
-    localStorage.setItem("stored-drinks", JSON.stringify(storedDrinks));
+        $(e.target).text("Saved!");
+        storedDrinks.push(dataId);
+        localStorage.setItem("stored-drinks", JSON.stringify(storedDrinks));
     }
 })
 
@@ -68,7 +78,7 @@ function displayDrink(info) {
     var drinkMeasure9 = info.drinks[0].strMeasure9;
     var drinkMeasure10 = info.drinks[0].strMeasure10;
     if (drinkCategory !== "shot") {
-        saveBtn.attr("data-id", drinkId);    
+        saveBtn.attr("data-id", drinkId);
         cocktailNameEl.text(cocktailName);
         cocktailImgEl.attr("src", drinkImgUrl);
         instructionsEl.text(instructions);
@@ -243,7 +253,17 @@ function displayDrink(info) {
                         .then(function (data) {
                             displayDrink(data)
                         })
+                } else {
+                    var message = $("<p class='has-text-danger'>");
+                    message.text('Error' + response.statusText);
+                    errorMsg.append(message);
+                    // alert('Error' + response.statusText);
                 }
             })
+            .catch(function (error) {
+                var message = $("<p class='has-text-danger'>");
+                message.text('unable to connect to CocktailDB');
+                errorMsg.append(message);
+            })
     }
-}
+};

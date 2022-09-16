@@ -17,15 +17,17 @@ for (let i = 0; i < storedDrinks.length; i++) {
         console.log(data);
         });
       } else {
-        alert('Error: ' + response.statusText);
+        var message = $("<p class='has-text-danger'>");
+        message.text('Error' + response.statusText);
+        errorMsg.append(message);
       }
     })
     .catch(function (error) {
-      alert('Unable to connect to CocktailDB');
-    });
-
-    
-}
+      var message = $("<p class='has-text-danger'>");
+        message.text('unable to connect to CocktailDB');
+        errorMsg.append(message);
+    })
+};
 
 function displayInfo(info) {
       var drinkId = info.drinks[0].idDrink;
