@@ -1,5 +1,5 @@
 var cocktailInputEl = $("#cocktail-name-input");
-var ingredientInputEl = $("#ingredient-name-input");
+// var ingredientInputEl = $("#ingredient-name-input");
 var cocktailBtn = $("#cocktail-btn");
 var ingredientBtn = $("#ingredient-btn");
 var nameButtonDiv = $(".name-button-div");
@@ -19,13 +19,12 @@ cocktailBtn.on("click", function(e) {
     }
 });
 
-function validatingIngInput() {
+function ingInput() {
     var ingListUrl = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
   
   fetch(ingListUrl)
     .then(function(response){
       return response.json()
-      
     }).then(function(data){
       // console.log(data); 
       // strIngredient1
@@ -35,24 +34,22 @@ function validatingIngInput() {
       optionEl.text(data.drinks[i].strIngredient1);
       optionEl.val(data.drinks[i].strIngredient1);
       ingListSelectEl.append(optionEl)
-        
       }
-  
     })
   }
-  validatingIngInput();
+  ingInput();
 
 ingredientBtn.on("click", function(e) {
     e.preventDefault();
-    var ingredientVal = ingredientInputEl.val();
+    // var ingredientVal = ingredientInputEl.val();
     var dropDownVal = ingListSelectEl.val();
     console.log(dropDownVal);
-    if(ingredientVal !=="") {
-        ingredientInputEl.val("");
-        window.location.replace(`./search-results.html?i=${ingredientVal}`);
-    } else {
-        var p = $("<p class='has-text-danger'>");
-        p.text("Please enter a valid input");
-        ingButtonDiv.append(p);
-    }
+    // if(ingredientVal !=="") {
+        // ingredientInputEl.val("");
+        window.location.replace(`./search-results.html?i=${dropDownVal}`);
+    // } else {
+    //     var p = $("<p class='has-text-danger'>");
+    //     p.text("Please enter a valid input");
+    //     ingButtonDiv.append(p);
+    // }
 });
