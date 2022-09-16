@@ -9,23 +9,21 @@ var glassTypeEl = $("#glass-type");
 var cocktailImgEl = $("#cocktail-image");
 var storedDrinks = JSON.parse(localStorage.getItem("stored-drinks")) || [];
 
-
 randomBtn.on("click", function (e) {
     e.preventDefault();
+    saveBtn.text("Save");
     drinkCard.attr("style", "display: block;");
     fetch(randomApiUrl)
         .then(function (response) {
             if (response.ok) {
                 response.json()
                     .then(function (data) {
-                        // console.log(data)
                         displayDrink(data)
                     })
             } else {
                 var message = $("<p class='has-text-danger'>");
                 message.text('Error' + response.statusText);
                 errorMsg.append(message);
-                // alert('Error' + response.statusText);
             }
         })
         .catch(function (error) {
@@ -35,21 +33,22 @@ randomBtn.on("click", function (e) {
         })
 });
 
+//When the save button is clicked, execute "if" if item is already stored in local storage. Otherwise, store in local storage.
 saveBtn.on("click", function (e) {
     e.preventDefault();
     var dataId = saveBtn.attr("data-id");
     if (storedDrinks.includes(dataId)) {
-        $(e.target).text("Already Saved!");
+        saveBtn.text("Already Saved!");
         return;
     } else {
-        $(e.target).text("Saved!");
+        saveBtn.text("Saved!");
         storedDrinks.push(dataId);
         localStorage.setItem("stored-drinks", JSON.stringify(storedDrinks));
     }
 })
 
+//Function to display 
 function displayDrink(info) {
-    // console.log(info.drinks);
     ingredientListEl.empty();
     var drinkId = info.drinks[0].idDrink;
     var cocktailName = info.drinks[0].strDrink;
@@ -245,7 +244,6 @@ function displayDrink(info) {
         ingredientListEl.append(li10);
 
     } else {
-        console.log("Run again")
         fetch(randomApiUrl)
             .then(function (response) {
                 if (response.ok) {
@@ -257,7 +255,6 @@ function displayDrink(info) {
                     var message = $("<p class='has-text-danger'>");
                     message.text('Error' + response.statusText);
                     errorMsg.append(message);
-                    // alert('Error' + response.statusText);
                 }
             })
             .catch(function (error) {
