@@ -1,5 +1,6 @@
 var searchResults;
-var errorMsg = $(".error-msg")
+var errorMsg = $(".error-msg");
+
 
 // Store variable that grabs first letter after query in URL to determine whether it is a cocktail search("s") or ingredient search("i")
 var searchType = location.search.split("=")[0].split("")[1];
@@ -7,8 +8,37 @@ var searchQuery = location.search.split("=")[1];
 var cocktailUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchQuery}`;
 var ingredientUrl = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${searchQuery}`;
 var resultList = $("#result-list");
-var storedDrinks = JSON.parse(localStorage.getItem("stored-drinks")) || []
-// var cocktailByIdUrl;
+var storedDrinks = JSON.parse(localStorage.getItem("stored-drinks")) || [];
+var nullMessage = $("<h2 class='title is-3'>");
+nullMessage.text(`Sorry, there were no results for ${searchQuery}`);
+var backBtn = $("<button class='button is-danger mx-auto' style='display: block'>");
+var backBtnLink = $("<a href='index.html'>");
+backBtn.text("Go back");
+backBtnLink.append(backBtn);
+
+var ingListSelectEl = $("#ing-list");
+
+function validatingIngInput() {
+  var ingListUrl = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
+
+fetch(ingListUrl)
+  .then(function(response){
+    return response.json()
+    
+  }).then(function(data){
+    // console.log(data); 
+    // strIngredient1
+    for (let i = 0; i < data.drinks.length; i++) {
+      console.log(data.drinks[i].strIngredient1);
+    // var optionEl = $("<option>");
+    // optionEl.text(data.drinks[i].strIngredient1);
+    // ingListSelectEl.append(optionEl)
+      
+    }
+
+  })
+}
+validatingIngInput();
 
 // Create fetch for cocktail type search query
 if (searchType === "s") {
@@ -35,9 +65,11 @@ if (searchType === "s") {
 
 // Create fetch for ingredient type search query
 if (searchType === "i") {
-  console.log("This is an ingredient search");
+  console.log("This is an ingredient search", ingredientUrl);
+  // validatingIngInput(searchQuery);
   fetch(ingredientUrl)
     .then(function (response) {
+      console.log(response);
       if (response.ok) {
         response.json().then(function (data) {
           getIngredientInfo(data);
@@ -58,6 +90,7 @@ if (searchType === "i") {
 
 function getIngredientInfo(info) {
   console.log(info.drinks);
+
   var randomDrinksArr = info.drinks.map(value => ({ value, sort: Math.random() })).sort((a, b) => a.sort - b.sort).map(({ value }) => value).slice(0, 10);
   console.log(randomDrinksArr);
   for (let i = 0; i < randomDrinksArr.length; i++) {
@@ -87,6 +120,11 @@ function getIngredientInfo(info) {
 
 function displayCocktailInfo(info) {
   console.log(info.drinks);
+  if (info.drinks === null) {
+    resultList.append(nullMessage);
+    resultList.append(backBtnLink);
+    return;
+  }
   for (var i = 0; i < info.drinks.length; i++) {
     var drinkId = info.drinks[i].idDrink;
     var cocktailName = info.drinks[i].strDrink;
@@ -332,6 +370,7 @@ function displayCocktailInfo(info) {
 };
 
 function displayIngredientInfo (info) {
+
   var drinkId = info.drinks[0].idDrink;
     var cocktailName = info.drinks[0].strDrink;
     var glassType = info.drinks[0].strGlass;

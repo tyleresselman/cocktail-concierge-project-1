@@ -1,6 +1,5 @@
 var storedDrinks = JSON.parse(localStorage.getItem("stored-drinks"));
-var favoritesList = $("#favorites-list") 
-
+var favoritesList = $("#favorites-list");
 
 console.log(storedDrinks);
 
