@@ -2,18 +2,14 @@
     max-width: 30%;
 }
 
-
-/* Ask team if this sizing change works for random.html file */
-/* Creates a wider card and below makes img a little smaller but still centered */
-
-/* .custom-col-width {
+.custom-col-width {
     max-width: 50%;
 }
 
 .custom-col-width img {
     width: 50%;
     margin: 0 auto;
-} */
+}
 
 .hero-bg-img {
     background-image: url("../images/header-banner-1.jpeg");
